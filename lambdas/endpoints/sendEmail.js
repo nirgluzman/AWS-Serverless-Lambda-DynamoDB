@@ -9,7 +9,7 @@ exports.handler = async (event) => {
   const { to, from, subject, text } = JSON.parse(event.body);
 
   if (!to || !from || !subject || !text) {
-    Responses._400({
+    return Responses._400({
       message: 'to, from, subject and text are required in the body',
     });
   }
