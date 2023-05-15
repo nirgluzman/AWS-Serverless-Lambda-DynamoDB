@@ -149,6 +149,18 @@ functions:
       - httpApi:
           path: /file/{fileName}
           method: get
+  proxy:
+    handler: lambdas/endpoints/proxy.handler
+    events:
+      - http:
+          path: /chuck-norris/{proxy+}
+          method: ANY
+          integration: http-proxy
+          request:
+            uri: https://api.chucknorris.io/{proxy}
+            parameters:
+              paths:
+                proxy: true
 
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
