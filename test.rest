@@ -1,7 +1,10 @@
 @url = https://48zi8xqjfh.execute-api.us-east-1.amazonaws.com/
 
 ###
-GET {{url}}/player-score/
+GET {{url}}/player-score
+
+###
+GET {{url}}/player-score/58dbde8e-01af-404c-bddf-d8ee041aab43
 
 ###
 POST {{url}}/player-score
@@ -13,4 +16,4 @@ Content-Type: application/json
 }
 
 ###
-DELETE {{url}}/player-score/89b10d9c-b4c8-4524-ba2e-e856d540cdbf
+DELETE {{url}}/player-score/58dbde8e-01af-404c-bddf-d8ee041aab43

@@ -3,6 +3,14 @@ const AWS = require('aws-sdk');
 const ddb = new AWS.DynamoDB.DocumentClient();
 
 const DynamoDB = {
+  // https://dynobase.dev/dynamodb-nodejs/#scan
+  scan(TableName) {
+    const params = {
+      TableName,
+    };
+    return ddb.scan(params).promise();
+  },
+
   // https://dynobase.dev/dynamodb-nodejs/#get-item
   get(TableName, ID) {
     const params = {

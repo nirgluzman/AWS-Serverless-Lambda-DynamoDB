@@ -88,6 +88,12 @@ functions:
       - httpApi:
           path: /get-user/{ID}
           method: get
+  getAllPlayerScore:
+    handler: lambdas/endpoints/getAllPlayerScore.handler
+    events:
+      - httpApi:
+          path: /player-score
+          method: get
   getPlayerScore:
     handler: lambdas/endpoints/getPlayerScore.handler
     events:
