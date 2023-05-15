@@ -27,10 +27,12 @@ provider:
   stage: dev
   environment:
     tableName: ${self:custom.tableName}
+    bucketName: ${self:custom.bucketName}
   iamRoleStatements:
     - Effect: Allow
       Action:
         - dynamodb:*
+        - s3:*
       Resource: '*'
 
 plugins:
@@ -112,6 +114,18 @@ functions:
       - httpApi:
           path: /player-score/{ID}
           method: delete
+  createFile:
+    handler: lambdas/endpoints/createFile.handler
+    events:
+      - httpApi:
+          path: /file/{fileName}
+          method: post
+  getFile:
+    handler: lambdas/endpoints/getFile.handler
+    events:
+      - httpApi:
+          path: /file/{fileName}
+          method: get
 
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events

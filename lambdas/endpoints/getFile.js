@@ -16,18 +16,18 @@ exports.handler = async (event) => {
     });
   }
 
-  const data = JSON.parse(event.body);
-
   try {
-    const newData = await S3.write(bucket, fileName, data);
+    const file = await S3.get(bucket, fileName);
 
-    if (!newData) {
-      return Responses._400({ message: 'failed to write data by fileName' });
+    if (!file) {
+      return Responses._400({ message: 'failed to get data by fileName' });
     }
 
-    return Responses._200(newData);
+    const data = JSON.parse(file.Body.toString());
+
+    return Responses._200(data);
   } catch (err) {
-    console.log('error in S3 WRITE', err);
+    console.log('error in S3 GET', err);
     return Responses._500({ message: err.message });
   }
 };

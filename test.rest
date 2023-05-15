@@ -17,3 +17,16 @@ Content-Type: application/json
 
 ###
 DELETE {{url}}/player-score/58dbde8e-01af-404c-bddf-d8ee041aab43
+
+###
+GET {{url}}/file/car.json
+
+###
+POST {{url}}/file/car.json
+Content-Type: application/json
+
+{
+    "model": "Ford Focus",
+    "year": 2023,
+    "color": "red"
+}
