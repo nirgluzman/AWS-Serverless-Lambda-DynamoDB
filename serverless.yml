@@ -33,6 +33,7 @@ provider:
       Action:
         - dynamodb:*
         - s3:*
+        - ses:*
       Resource: '*'
   # https://www.serverless.com/framework/docs/providers/aws/events/apigateway#setting-api-keys-for-your-rest-api
   apiGateway:
@@ -161,6 +162,12 @@ functions:
             parameters:
               paths:
                 proxy: true
+  sendEmail:
+    handler: lambdas/endpoints/sendEmail.handler
+    events:
+      - httpApi:
+          path: /send-email
+          method: post
 
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events

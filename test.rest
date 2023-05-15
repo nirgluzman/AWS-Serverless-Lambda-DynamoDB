@@ -1,6 +1,7 @@
 @url-apiKey = https://mi6y7aitog.execute-api.us-east-1.amazonaws.com/dev
 @url = https://48zi8xqjfh.execute-api.us-east-1.amazonaws.com
 
+
 ###
 GET {{url-apiKey}}/get-user/1234
 x-api-key: rdYeRRxg9W2KXvMRk45to39EsEQRRscK7x4PCh1F
@@ -34,4 +35,15 @@ Content-Type: application/json
     "model": "Ford Focus",
     "year": 2023,
     "color": "red"
+}
+
+###
+POST {{url}}/send-email
+Content-Type: application/json
+
+{
+    "from": "nir.gluzman@gmail.com",
+    "to": "esty101@gmail.com",
+    "subject": "hello from Serverless",
+    "text": "bla bla"
 }
