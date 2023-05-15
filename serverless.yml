@@ -100,6 +100,12 @@ functions:
       - httpApi:
           path: /player-score
           method: post
+  deletePlayerScore:
+    handler: lambdas/endpoints/deletePlayerScore.handler
+    events:
+      - httpApi:
+          path: /player-score/{ID}
+          method: delete
 
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events

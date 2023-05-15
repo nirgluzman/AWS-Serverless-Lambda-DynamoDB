@@ -15,15 +15,15 @@ exports.handler = async (event) => {
   }
 
   try {
-    const user = await DynamoDB.get(tableName, ID);
+    const user = await DynamoDB.delete(tableName, ID);
 
     if (JSON.stringify(user) === '{}') {
       return Responses._400({ message: 'failed to get user by ID' });
     }
 
-    return Responses._200(user.Item);
+    return Responses._200({ message: 'item has been deleted' });
   } catch (err) {
-    console.log('error in DynamoDB GET', err);
+    console.log('error in DynamoDB DELETE', err);
     return Responses._500({ message: err.message });
   }
 };

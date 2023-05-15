@@ -13,12 +13,23 @@ const DynamoDB = {
   },
 
   // https://dynobase.dev/dynamodb-nodejs/#put-item
+  // https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/example_dynamodb_PutItem_section.html
   write(TableName, user) {
     const params = {
       TableName,
       Item: user,
     };
     return ddb.put(params).promise();
+  },
+
+  // https://dynobase.dev/dynamodb-nodejs/#delete-item
+  delete(TableName, ID) {
+    const params = {
+      TableName,
+      Key: { ID },
+      ReturnValues: 'ALL_OLD',
+    };
+    return ddb.delete(params).promise();
   },
 };
 

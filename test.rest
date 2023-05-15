@@ -8,6 +8,9 @@ POST {{url}}/player-score
 Content-Type: application/json
 
 {
-    "name": "Itay",
-    "score": 15
+    "name": "Klaus",
+    "score": 23
 }
+
+###
+DELETE {{url}}/player-score/89b10d9c-b4c8-4524-ba2e-e856d540cdbf
