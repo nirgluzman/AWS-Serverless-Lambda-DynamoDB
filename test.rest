@@ -1,13 +1,13 @@
 @url = https://48zi8xqjfh.execute-api.us-east-1.amazonaws.com/
 
 ###
-GET {{url}}/player-score/1234
+GET {{url}}/player-score/
 
 ###
 POST {{url}}/player-score
 Content-Type: application/json
 
 {
-    "name": "Idan",
-    "score": 100
+    "name": "Itay",
+    "score": 15
 }
