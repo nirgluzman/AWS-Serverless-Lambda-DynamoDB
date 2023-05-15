@@ -1,4 +1,9 @@
-@url = https://48zi8xqjfh.execute-api.us-east-1.amazonaws.com/
+@url-apiKey = https://mi6y7aitog.execute-api.us-east-1.amazonaws.com/dev
+@url = https://48zi8xqjfh.execute-api.us-east-1.amazonaws.com
+
+###
+GET {{url-apiKey}}/get-user/1234
+x-api-key: rdYeRRxg9W2KXvMRk45to39EsEQRRscK7x4PCh1F
 
 ###
 GET {{url}}/player-score
@@ -16,7 +21,7 @@ Content-Type: application/json
 }
 
 ###
-DELETE {{url}}/player-score/58dbde8e-01af-404c-bddf-d8ee041aab43
+DELETE {{url}}/player-score/8f44f0c3-8a49-4711-84ec-8aa4b7ab2890
 
 ###
 GET {{url}}/file/car.json

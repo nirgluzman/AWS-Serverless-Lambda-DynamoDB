@@ -34,6 +34,28 @@ provider:
         - dynamodb:*
         - s3:*
       Resource: '*'
+  # https://www.serverless.com/framework/docs/providers/aws/events/apigateway#setting-api-keys-for-your-rest-api
+  apiGateway:
+    apiKeys:
+      - free:
+          - freeApiKey
+      - paid:
+          - paidApiKey
+    usagePlan:
+      - free:
+          quota:
+            limit: 5
+            period: MONTH
+          throttle:
+            burstLimit: 5
+            rateLimit: 1
+      - paid:
+          quota:
+            limit: 20
+            period: MONTH
+          throttle:
+            burstLimit: 5
+            rateLimit: 1
 
 plugins:
   - serverless-s3-sync
@@ -87,9 +109,10 @@ functions:
   getUser:
     handler: lambdas/endpoints/getUser.handler
     events:
-      - httpApi:
+      - http:
           path: /get-user/{ID}
           method: get
+          private: true
   getAllPlayerScore:
     handler: lambdas/endpoints/getAllPlayerScore.handler
     events:
