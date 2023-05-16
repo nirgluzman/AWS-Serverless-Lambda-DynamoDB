@@ -227,6 +227,20 @@ resources:
           - AttributeName: ID
             KeyType: HASH
         BillingMode: PAY_PER_REQUEST
+    MyAssumeRole:
+      Type: AWS::IAM::Role
+      Properties:
+        RoleName: MyAssumeRole
+        AssumeRolePolicyDocument:
+          Version: '2012-10-17'
+          Statement:
+            - Effect: Allow
+              Principal:
+                Service:
+                  - lambda.amazonaws.com
+                  - apigateway.amazonaws.com
+              Action:
+                - sts:AssumeRole
 #  Outputs:
 #     NewOutput:
 #       Description: "Description for the output"
