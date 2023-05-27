@@ -30,6 +30,21 @@ const DynamoDB = {
     return ddb.put(params).promise();
   },
 
+  // https://dynobase.dev/dynamodb-nodejs/#update-item
+  // https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/example_dynamodb_UpdateItem_section.html
+  update(TableName, ID, updateKey, updateValue) {
+    const params = {
+      TableName,
+      Key: { ID },
+      UpdateExpression: `set ${updateKey} = :updateValue`,
+      ExpressionAttributeValues: {
+        ':updateValue': updateValue,
+      },
+      ReturnValues: 'ALL_NEW',
+    };
+    return ddb.update(params).promise();
+  },
+
   // https://dynobase.dev/dynamodb-nodejs/#delete-item
   delete(TableName, ID) {
     const params = {

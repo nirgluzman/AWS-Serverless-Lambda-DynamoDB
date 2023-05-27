@@ -1,5 +1,5 @@
 @url-apiKey = https://mi6y7aitog.execute-api.us-east-1.amazonaws.com/dev
-@url = https://48zi8xqjfh.execute-api.us-east-1.amazonaws.com
+@url = https://38xd6o3h33.execute-api.us-east-1.amazonaws.com/
 
 
 ###
@@ -10,19 +10,28 @@ x-api-key: rdYeRRxg9W2KXvMRk45to39EsEQRRscK7x4PCh1F
 GET {{url}}/player-score
 
 ###
-GET {{url}}/player-score/58dbde8e-01af-404c-bddf-d8ee041aab43
+GET {{url}}/player-score/2b90f3d9-20d4-44e8-b71e-6eadf6e044cd
 
 ###
 POST {{url}}/player-score
 Content-Type: application/json
 
 {
-    "name": "Klaus",
-    "score": 23
+    "name": "Nir",
+    "score": 38
 }
 
 ###
-DELETE {{url}}/player-score/8f44f0c3-8a49-4711-84ec-8aa4b7ab2890
+PATCH {{url}}/player-score/2b90f3d9-20d4-44e8-b71e-6eadf6e044cd
+Content-Type: application/json
+
+{
+    "score": 44
+}
+
+
+###
+DELETE {{url}}/player-score/3e32fe18-1a6a-4542-89ad-0f6a48a387b2
 
 ###
 GET {{url}}/file/car.json
