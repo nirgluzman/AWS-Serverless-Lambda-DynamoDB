@@ -45,6 +45,19 @@ const DynamoDB = {
     return ddb.update(params).promise();
   },
 
+  // https://dynobase.dev/dynamodb-nodejs/#query-index
+  query(TableName, index, queryKey, queryValue) {
+    const params = {
+      TableName,
+      IndexName: index,
+      KeyConditionExpression: `${queryKey} = :hkey`,
+      ExpressionAttributeValues: {
+        ':hkey': queryValue,
+      },
+    };
+    return ddb.query(params).promise();
+  },
+
   // https://dynobase.dev/dynamodb-nodejs/#delete-item
   delete(TableName, ID) {
     const params = {

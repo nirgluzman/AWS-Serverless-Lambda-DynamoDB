@@ -17,8 +17,9 @@ POST {{url}}/player-score
 Content-Type: application/json
 
 {
-    "name": "Nir",
-    "score": 38
+    "name": "Idan",
+    "score": 20,
+    "game": "football"
 }
 
 ###
@@ -32,6 +33,11 @@ Content-Type: application/json
 
 ###
 DELETE {{url}}/player-score/3e32fe18-1a6a-4542-89ad-0f6a48a387b2
+
+###
+GET {{url}}/game-scores/tennis
+
+
 
 ###
 GET {{url}}/file/car.json

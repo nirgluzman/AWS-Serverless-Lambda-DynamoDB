@@ -33,7 +33,7 @@ exports.handler = async (event) => {
 
     return Responses._200(response.Attributes);
   } catch (err) {
-    console.log('error in DynamoDB WRITE', err);
+    console.log('error in DynamoDB UPDATE', err);
     return Responses._500({ message: err.message });
   }
 };
