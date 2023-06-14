@@ -35,6 +35,11 @@ provider:
             - s3:*
             - ses:*
           Resource: '*'
+  
+  # Lambda function options configuration
+  # https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-timeout-console
+  timeout: 10
+  memorySize: 128
 
   # https://www.serverless.com/framework/docs/providers/aws/events/apigateway#setting-api-keys-for-your-rest-api
   apiGateway:
@@ -83,8 +88,6 @@ functions:
           private: true
   getAllPlayerScore:
     handler: lambdas/endpoints/getAllPlayerScore.handler
-    timeout: 10
-    memorySize: 128
     description: SCAN table to return all items
     events:
       - httpApi:
