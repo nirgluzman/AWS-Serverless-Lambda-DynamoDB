@@ -83,30 +83,37 @@ functions:
           private: true
   getAllPlayerScore:
     handler: lambdas/endpoints/getAllPlayerScore.handler
+    timeout: 10
+    memorySize: 128
+    description: SCAN table to return all items
     events:
       - httpApi:
           path: /player-score
           method: get
   getPlayerScore:
     handler: lambdas/endpoints/getPlayerScore.handler
+    description: GET an item by ID
     events:
       - httpApi:
           path: /player-score/{ID}
           method: get
   createPlayerScore:
     handler: lambdas/endpoints/createPlayerScore.handler
+    description: CREATE a new item in table
     events:
       - httpApi:
           path: /player-score
           method: post
   updatePlayerScore:
     handler: lambdas/endpoints/updatePlayerScore.handler
+    description: UPDATE the score attribute of an item
     events:
       - httpApi:
           path: /player-score/{ID}
           method: patch
   deletePlayerScore:
     handler: lambdas/endpoints/deletePlayerScore.handler
+    description: DELETE an item by ID
     events:
       - httpApi:
           path: /player-score/{ID}
